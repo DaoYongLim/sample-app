@@ -2,7 +2,6 @@ import { TextField } from "@material-ui/core";
 import React, { Component } from "react";
 import $ from 'jquery';
 
-var value;
 
 class PostApi extends Component {
   handleChange = (e) => {
@@ -24,7 +23,9 @@ class PostApi extends Component {
       $.ajax(setting).done(function (response){
           console.log(response);
           console.log(response.id);
+          document.getElementById("result").value = response.id;
       });
+
     }
 
   render() {
@@ -50,9 +51,9 @@ class PostApi extends Component {
             Submit
           </button>
           <br />
-          result
-          <br></br>
-          <TextField name="result" onChange={this.handleChange}/>
+          <br />
+          <TextField name="result" id="result"/>
+          <br />
         </form>
       </div>
     );
